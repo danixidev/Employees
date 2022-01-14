@@ -4,26 +4,39 @@ import Alamofire
 
 class ViewController: UIViewController {
 
-    var users: [User]?
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUsers()
+        login(email: "", password: "")
     }
     
-    func getUsers() {
-        AF.request("http://kurokiji.com/").responseDecodable(of: [User].self) { response in
+    func login(email: String, password: String) {
+        let parameters: Parameters = ["email": email, "password": password]
+        
+        AF.request("http://kurokiji.com/api/login", method: .put, parameters: parameters).responseDecodable(of: Body.self) { response in
             
-            self.users = try? response.result.get()
+            self.user = try? response.value?.user
             
-            print(self.users!)
+            print(self.user!)
         }
     }
 
 
 }
 
+struct Body: Codable {
+    let status: Int
+    let msg: String
+    let user: User
+}
+
 struct User: Codable {
-    let user: String
-    let pass: Int
+    let id: Int
+    let name: String
+    let email: String
+    let job: String
+    let salary: Int
+    let biography: String
+    let profileImgUrl: String
 }
