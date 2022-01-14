@@ -5,14 +5,24 @@ import Alamofire
 class ViewController: UIViewController {
 
     var user: User?
+    @IBOutlet weak var emailTextEdit: UITextField!
+    @IBOutlet weak var passwordTextEdit: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //login(email: "danixidev@gmail.com", password: "T{hiz>#pl(")
-        logout(token: "$2y$10$rT0znvuWwS/6j/do5k/MI.6//Qy6k9ctlCfb7.3HCJyLSqjItH.Mq")
     }
     
-    func login(email: String, password: String) {
+    @IBAction func loginButton(_ sender: UIButton) {
+        if emailTextEdit.text == "" {
+            
+        } else if passwordTextEdit.text == "" {
+            
+        } else {
+            login(email: emailTextEdit.text!, password: passwordTextEdit.text!)
+        }
+    }
+    
+    func login(email: String, password: String) {       // T{hiz>#pl(
         let parameters: Parameters = ["email": email, "password": password]
         
         AF.request("http://kurokiji.com/api/login", method: .put, parameters: parameters).responseDecodable(of: Body.self) { response in
