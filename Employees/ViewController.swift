@@ -20,32 +20,38 @@ class ViewController: UIViewController {
         } else if passwordTextEdit.text == "" {
             
         } else {
-            login(email: emailTextEdit.text!, password: passwordTextEdit.text!)
+            performSegue(withIdentifier: "loginSegue", sender: nil)
         }
     }
     
-    func login(email: String, password: String) {       // T{hiz>#pl(
+    func login(email: String, password: String) -> Bool {       // T{hiz>#pl(
         let parameters: Parameters = ["email": email, "password": password]
+        var bool = false
         
         AF.request("http://kurokiji.com/api/login", method: .put, parameters: parameters).responseDecodable(of: Body.self) { response in
             if response.value?.status == 1 {
                 print(response.value?.user!)
                 print("Succesful: \(response.value?.msg)")
+                bool = true
             } else {
                 print("Failed: \(response.value?.msg)")
             }
         }
+        return bool
     }
-    func logout(token: String) {
+    func logout(token: String) -> Bool {
         let header: HTTPHeaders = ["token": token]
+        var bool = false
         
         AF.request("http://kurokiji.com/api/employee/logout", method: .put, headers: header).responseDecodable(of: Body.self) { response in
             if(response.value?.status == 1) {
                 print("Succesful: \(response.value?.msg)")
+                bool = true
             } else {
                 print("Failed: \(response.value?.msg)")
             }
         }
+        return bool
     }
 
 

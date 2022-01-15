@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Alu-b4-h4j">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="T{hiz&gt;#pl(" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Alu-b4-h4j">
                                 <rect key="frame" x="57" y="259" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="14t-2D-xlR"/>
@@ -26,7 +26,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hbb-Pu-Vdq">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="danixidev@gmail.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hbb-Pu-Vdq">
                                 <rect key="frame" x="57" y="163" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Hbb-Pu-Vdq" secondAttribute="height" multiplier="150:25" id="Kwj-6Y-hrm"/>
@@ -60,6 +60,9 @@
                                 <state key="normal" title="Olvidé mi contraseña">
                                     <color key="titleColor" systemColor="tintColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="d30-Uk-Vft" kind="show" id="Ap3-TZ-DAi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Did-y5-bGt">
                                 <rect key="frame" x="149" y="754" width="116" height="43"/>
@@ -73,6 +76,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7GP-Tt-Gx3"/>
+                                    <segue destination="7Ga-RJ-925" kind="show" id="xWU-GA-UOq"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿No tienes una cuenta?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPr-vf-gpX">
@@ -103,26 +107,59 @@
                         <outlet property="emailTextEdit" destination="Hbb-Pu-Vdq" id="Y5s-Wv-oni"/>
                         <outlet property="loginButton" destination="hne-mO-4Mx" id="CKf-DF-Zpp"/>
                         <outlet property="passwordTextEdit" destination="Alu-b4-h4j" id="TVb-bS-fTb"/>
+                        <segue destination="HE2-zu-mMu" kind="showDetail" identifier="loginSegue" id="3Cb-tu-a25"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="114.50892857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Forgot Password Controller-->
         <scene sceneID="QzL-Lz-1ku">
             <objects>
-                <viewController id="d30-Uk-Vft" sceneMemberID="viewController">
+                <viewController id="d30-Uk-Vft" customClass="ForgotPasswordController" customModule="Employees" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6fD-bM-H00">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="q1g-g0-YLK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="nXM-MD-Qx0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZdX-UF-jUv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="994" y="115"/>
+        </scene>
+        <!--Register Controller-->
+        <scene sceneID="fhK-Rb-QV7">
+            <objects>
+                <viewController id="7Ga-RJ-925" customClass="RegisterController" customModule="Employees" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LOX-Lf-uep">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="K9v-lV-xp2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RxM-D6-wrc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2PW-IY-6pm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1754" y="115"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="emg-u2-56q">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="HE2-zu-mMu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a9j-68-95Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Stk-rA-juR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LEo-Wq-STg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="821"/>
         </scene>
     </scenes>
     <resources>
