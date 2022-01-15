@@ -42,7 +42,7 @@
                                     <constraint firstAttribute="height" constant="75" id="6LZ-vc-Fzs"/>
                                     <constraint firstAttribute="width" secondItem="hne-mO-4Mx" secondAttribute="height" multiplier="150:50" id="IeD-6T-yPX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="Iniciar sesión">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -60,9 +60,6 @@
                                 <state key="normal" title="Olvidé mi contraseña">
                                     <color key="titleColor" systemColor="tintColor"/>
                                 </state>
-                                <connections>
-                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wCT-vf-Bt4"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Did-y5-bGt">
                                 <rect key="frame" x="149" y="754" width="116" height="43"/>
@@ -104,7 +101,6 @@
                     </view>
                     <connections>
                         <outlet property="emailTextEdit" destination="Hbb-Pu-Vdq" id="Y5s-Wv-oni"/>
-                        <outlet property="forgotPasswordButton" destination="8Wa-NN-Vrf" id="1GO-zP-GMX"/>
                         <outlet property="loginButton" destination="hne-mO-4Mx" id="CKf-DF-Zpp"/>
                         <outlet property="passwordTextEdit" destination="Alu-b4-h4j" id="TVb-bS-fTb"/>
                     </connections>

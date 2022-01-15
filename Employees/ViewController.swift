@@ -8,7 +8,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var emailTextEdit: UITextField!
     @IBOutlet weak var passwordTextEdit: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var forgotPasswordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
