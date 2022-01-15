@@ -7,9 +7,12 @@ class ViewController: UIViewController {
     var user: User?
     @IBOutlet weak var emailTextEdit: UITextField!
     @IBOutlet weak var passwordTextEdit: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginButton.layer.cornerRadius = 10.0
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
@@ -27,7 +30,7 @@ class ViewController: UIViewController {
         
         AF.request("http://kurokiji.com/api/login", method: .put, parameters: parameters).responseDecodable(of: Body.self) { response in
             if response.value?.status == 1 {
-                print(response.value?.user)
+                print(response.value?.user!)
                 print("Succesful: \(response.value?.msg)")
             } else {
                 print("Failed: \(response.value?.msg)")
