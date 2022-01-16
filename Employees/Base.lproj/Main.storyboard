@@ -121,14 +121,65 @@
                     <view key="view" contentMode="scaleToFill" id="6fD-bM-H00">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ySz-E4-1ey">
+                                <rect key="frame" x="57" y="225" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HCW-kd-6DQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Introduce tu email para que te enviemos tu nueva contraseña" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mpm-UQ-lQm">
+                                <rect key="frame" x="60" y="130" width="294" height="90"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="3PO-4n-ZU4"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3g-P6-qZy">
+                                <rect key="frame" x="119.5" y="345" width="175" height="55"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="e3g-P6-qZy" secondAttribute="height" multiplier="35:11" id="7jz-ZT-XoO"/>
+                                    <constraint firstAttribute="height" constant="55" id="m42-mR-k5S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Mandar correo">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PTq-3A-Cvc"/>
+                                    <action selector="sendMailButton:" destination="d30-Uk-Vft" eventType="touchUpInside" id="VE9-0v-t2y"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="q1g-g0-YLK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mpm-UQ-lQm" firstAttribute="leading" secondItem="q1g-g0-YLK" secondAttribute="leading" constant="60" id="LJ5-Iu-t29"/>
+                            <constraint firstItem="e3g-P6-qZy" firstAttribute="top" secondItem="ySz-E4-1ey" secondAttribute="bottom" constant="70" id="R1F-vs-dHZ"/>
+                            <constraint firstItem="q1g-g0-YLK" firstAttribute="trailing" secondItem="mpm-UQ-lQm" secondAttribute="trailing" constant="60" id="Vbq-DU-YlR"/>
+                            <constraint firstItem="ySz-E4-1ey" firstAttribute="top" secondItem="mpm-UQ-lQm" secondAttribute="bottom" constant="5" id="Ykr-yV-Va9"/>
+                            <constraint firstItem="ySz-E4-1ey" firstAttribute="centerX" secondItem="6fD-bM-H00" secondAttribute="centerX" id="f4C-vZ-mYQ"/>
+                            <constraint firstItem="e3g-P6-qZy" firstAttribute="centerX" secondItem="6fD-bM-H00" secondAttribute="centerX" id="jAu-O4-vpj"/>
+                            <constraint firstItem="ySz-E4-1ey" firstAttribute="width" secondItem="ySz-E4-1ey" secondAttribute="height" multiplier="150:25" id="jXz-GD-Oar"/>
+                            <constraint firstItem="mpm-UQ-lQm" firstAttribute="centerX" secondItem="6fD-bM-H00" secondAttribute="centerX" id="m9K-qp-E5x"/>
+                            <constraint firstItem="mpm-UQ-lQm" firstAttribute="top" secondItem="q1g-g0-YLK" secondAttribute="top" constant="130" id="y0g-de-9PC"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nXM-MD-Qx0"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="ySz-E4-1ey" id="qYf-XU-dvP"/>
+                        <outlet property="sendMailButton" destination="e3g-P6-qZy" id="hmQ-fi-Dg7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZdX-UF-jUv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="994" y="115"/>
+            <point key="canvasLocation" x="992.75362318840587" y="114.50892857142857"/>
         </scene>
         <!--Register Controller-->
         <scene sceneID="fhK-Rb-QV7">
@@ -163,6 +214,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

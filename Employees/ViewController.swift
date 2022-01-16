@@ -14,27 +14,17 @@ class ViewController: UIViewController {
         loginButton.layer.cornerRadius = 10.0
     }
     
-    @IBAction func loginButton(_ sender: UIButton) {
-        if emailTextEdit.text == "" {
-            
-        } else if passwordTextEdit.text == "" {
-            
-        } else {
-            performSegue(withIdentifier: "loginSegue", sender: nil)
-        }
-    }
-    
     func login(email: String, password: String) -> Bool {       // T{hiz>#pl(
         let parameters: Parameters = ["email": email, "password": password]
         var bool = false
         
         AF.request("http://kurokiji.com/api/login", method: .put, parameters: parameters).responseDecodable(of: Body.self) { response in
             if response.value?.status == 1 {
-                print(response.value?.user!)
-                print("Succesful: \(response.value?.msg)")
+                print(response.value?.user! as Any)
+                print("Succesful: \(String(describing: response.value?.msg))")
                 bool = true
             } else {
-                print("Failed: \(response.value?.msg)")
+                print("Failed: \(String(describing: response.value?.msg))")
             }
         }
         return bool
@@ -45,15 +35,34 @@ class ViewController: UIViewController {
         
         AF.request("http://kurokiji.com/api/employee/logout", method: .put, headers: header).responseDecodable(of: Body.self) { response in
             if(response.value?.status == 1) {
-                print("Succesful: \(response.value?.msg)")
+                print("Succesful: \(String(describing: response.value?.msg))")
                 bool = true
             } else {
-                print("Failed: \(response.value?.msg)")
+                print("Failed: \(String(describing: response.value?.msg))")
             }
         }
         return bool
     }
 
+    @IBAction func loginButton(_ sender: UIButton) {
+        
+        if emailTextEdit.text == "" {
+            
+        } else if passwordTextEdit.text == "" {
+            
+        } else {
+            DispatchQueue.main.async {
+                if self.login(email: self.emailTextEdit.text!, password: self.passwordTextEdit.text!) {
+                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    print("HOLA")
+                }
+            }
+            
+            
+            
+            
+        }
+    }
 
 }
 
