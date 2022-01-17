@@ -22,10 +22,10 @@ class ViewController: UIViewController {
         } else {
             NetworkingHelper().loginRequest(success: { user in
                 let alert = UIAlertController(title: "Login succesful", message: "User was logged in succesfully", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
+                alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { action in
+                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                }))
                 self.present(alert, animated: true, completion: nil)
-                
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }, failure: { error in
                 let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
