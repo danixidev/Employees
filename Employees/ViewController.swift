@@ -21,10 +21,15 @@ class ViewController: UIViewController {
             
         } else {
             NetworkingHelper().loginRequest(success: { user in
-                print(user)
+                let alert = UIAlertController(title: "Login succesful", message: "User was logged in succesfully", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }, failure: { error in
-                print(error)
+                let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }, parameters: ["email": emailTextEdit.text!, "password": passwordTextEdit.text!])
         }
     }
