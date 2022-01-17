@@ -1,5 +1,6 @@
 
 import Foundation
+import Alamofire
 
 class NetworkingHelper {
     
@@ -12,6 +13,25 @@ class NetworkingHelper {
             }
         }
     }
-
+    
+    public func logoutRequest(success: @escaping (_ msg: String?)->(), failure: @escaping (_ msg: String?)->(), headers: HTTPHeaders) {     // headers = ["token": token]
+        AF.request("http://kurokiji.com/api/employee/logout", method: .put, headers: headers).responseDecodable(of: Body.self) { response in
+            if response.value?.status == 1 {
+                success(response.value?.msg)
+            } else {
+                failure(response.value?.msg)
+            }
+        }
+    }
+    
+    public func sendMailRequest(success: @escaping (_ msg: String?)->(), failure: @escaping (_ msg: String?)->(), parameters: Parameters) {
+        AF.request("http://kurokiji.com/api/passwordrecover", method: .put, parameters: parameters).responseDecodable(of: Body.self) { response in
+            if response.value?.status == 1 {
+                success(response.value?.msg)
+            } else {
+                failure(response.value?.msg)
+            }
+        }
+    }
     
 }
