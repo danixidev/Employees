@@ -14,25 +14,18 @@ class ViewController: UIViewController {
         loginButton.layer.cornerRadius = 10.0
     }
     
-
-
-    
-    
     @IBAction func loginButton(_ sender: UIButton) {    // rf;^])
-        
-        NetworkingHelper().loginRequest(success: { user in
-            print(user)
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
-        }, failure: { error in
-            print(error)
-        }, parameters: ["email": emailTextEdit.text!, "password": passwordTextEdit.text!])
-        
-        
         if emailTextEdit.text == "" {
             
         } else if passwordTextEdit.text == "" {
             
         } else {
+            NetworkingHelper().loginRequest(success: { user in
+                print(user)
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }, failure: { error in
+                print(error)
+            }, parameters: ["email": emailTextEdit.text!, "password": passwordTextEdit.text!])
         }
     }
 
