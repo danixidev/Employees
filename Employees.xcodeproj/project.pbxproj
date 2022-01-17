@@ -67,13 +67,11 @@
 		0D6AA36D278D799A0032C0F9 /* Employees */ = {
 			isa = PBXGroup;
 			children = (
+				0D807365279585BD006FFB25 /* Views */,
 				0D807362279564A2006FFB25 /* Networking */,
 				0D80736027956487006FFB25 /* Controllers */,
 				0D6AA36E278D799A0032C0F9 /* AppDelegate.swift */,
 				0D6AA370278D799A0032C0F9 /* SceneDelegate.swift */,
-				0D6AA372278D799A0032C0F9 /* ViewController.swift */,
-				330F531327924B63003703A5 /* ForgotPasswordController.swift */,
-				0D6AA374278D799A0032C0F9 /* Main.storyboard */,
 				0D6AA377278D799B0032C0F9 /* Assets.xcassets */,
 				0D6AA379278D799B0032C0F9 /* LaunchScreen.storyboard */,
 				0D6AA37C278D799B0032C0F9 /* Info.plist */,
@@ -84,6 +82,8 @@
 		0D80736027956487006FFB25 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0D6AA372278D799A0032C0F9 /* ViewController.swift */,
+				330F531327924B63003703A5 /* ForgotPasswordController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -94,6 +94,14 @@
 				0D80736327956B6D006FFB25 /* NetworkingHelper.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		0D807365279585BD006FFB25 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D6AA374278D799A0032C0F9 /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		600394922F85A032CC6B9787 /* Frameworks */ = {
