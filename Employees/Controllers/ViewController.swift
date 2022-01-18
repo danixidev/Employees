@@ -25,11 +25,11 @@ class ViewController: UIViewController {
                 let alert = UIAlertController(title: "Login succesful", message: "User was logged in succesfully", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { action in
                     self.user = user!
+                    print(user)
                     
                     UserDefaults.standard.set(self.user?.api_token, forKey: "api_token")
                     
                     self.performSegue(withIdentifier: "loginSegue", sender: nil)
-                    print((self.user?.api_token)!)
                 }))
                 self.present(alert, animated: true, completion: nil)
             }, failure: { error in
@@ -44,24 +44,23 @@ class ViewController: UIViewController {
         let destination = segue.destination as! MainPageController
         destination.user = self.user
     }
-    
 }
 
     
-struct Body: Codable {
+struct Response: Decodable, Encodable {
     let status: Int
     let msg: String
     let user: User?
-    let users: [User?]?
+    let data: [User]?
 }
 
-struct User: Codable {
-    let id: Int
+struct User: Decodable, Encodable {
+    let id: Int?
     let name: String
     let email: String
     let job: String
-    let salary: Int
+    let salary: Float
     let biography: String
     let profileImgUrl: String
-    let api_token: String
+    let api_token: String?
 }
