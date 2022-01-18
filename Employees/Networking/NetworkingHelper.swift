@@ -34,4 +34,13 @@ class NetworkingHelper {
         }
     }
     
+    public func getUsersRequest(success: @escaping (_ users: [User?])->(), failure: @escaping (_ msg: String?)->(), headers: HTTPHeaders) {     // headers = ["Token": token]
+        AF.request("http://kurokiji.com/api/employee/logout", method: .put, headers: headers).responseDecodable(of: Body.self) { response in
+            if response.value?.status == 1 {
+                success(response.value!.users)
+            } else {
+                failure(response.value?.msg)
+            }
+        }
+    }
 }

@@ -5,6 +5,7 @@ import Alamofire
 class ViewController: UIViewController {
 
     var user: User?
+    
     @IBOutlet weak var emailTextEdit: UITextField!
     @IBOutlet weak var passwordTextEdit: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -23,7 +24,12 @@ class ViewController: UIViewController {
             NetworkingHelper().loginRequest(success: { user in
                 let alert = UIAlertController(title: "Login succesful", message: "User was logged in succesfully", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { action in
+                    self.user = user!
+                    
+                    UserDefaults.standard.set(self.user?.api_token, forKey: "api_token")
+                    
                     self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    print((self.user?.api_token)!)
                 }))
                 self.present(alert, animated: true, completion: nil)
             }, failure: { error in
@@ -34,12 +40,19 @@ class ViewController: UIViewController {
         }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! MainPageController
+        destination.user = self.user
+    }
+    
 }
+
     
 struct Body: Codable {
     let status: Int
     let msg: String
     let user: User?
+    let users: [User?]
 }
 
 struct User: Codable {
@@ -50,4 +63,5 @@ struct User: Codable {
     let salary: Int
     let biography: String
     let profileImgUrl: String
+    let api_token: String
 }

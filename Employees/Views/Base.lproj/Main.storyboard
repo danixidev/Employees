@@ -155,23 +155,78 @@
             </objects>
             <point key="canvasLocation" x="992.75362318840587" y="114.50892857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Page Controller-->
         <scene sceneID="emg-u2-56q">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="HE2-zu-mMu" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="HE2-zu-mMu" customClass="MainPageController" customModule="Employees" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a9j-68-95Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GPi-Ra-XCw">
+                                <rect key="frame" x="0.0" y="107" width="414" height="789"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="h0X-j6-Vzy">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="40.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h0X-j6-Vzy" id="TpH-uL-tGn">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="40.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYZ-17-kq8">
+                                                    <rect key="frame" x="10" y="5" width="394" height="30.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="WYZ-17-kq8" secondAttribute="trailing" constant="10" id="6W6-oi-ULe"/>
+                                                <constraint firstItem="WYZ-17-kq8" firstAttribute="top" secondItem="TpH-uL-tGn" secondAttribute="top" constant="5" id="VGS-qc-AVB"/>
+                                                <constraint firstItem="WYZ-17-kq8" firstAttribute="leading" secondItem="TpH-uL-tGn" secondAttribute="leading" constant="10" id="gN7-JD-dAt"/>
+                                                <constraint firstAttribute="bottom" secondItem="WYZ-17-kq8" secondAttribute="bottom" constant="5" id="qMO-jf-1ba"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Employees" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8u-Nw-1Ba">
+                                <rect key="frame" x="30" y="44" width="187" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HnJ-Ub-3AG">
+                                <rect key="frame" x="359" y="44" width="35" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" image="person.circle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="medium"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Stk-rA-juR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GPi-Ra-XCw" firstAttribute="trailing" secondItem="Stk-rA-juR" secondAttribute="trailing" id="6Pa-fs-SWL"/>
+                            <constraint firstAttribute="bottom" secondItem="GPi-Ra-XCw" secondAttribute="bottom" id="Avz-3o-6m3"/>
+                            <constraint firstItem="Stk-rA-juR" firstAttribute="trailing" secondItem="HnJ-Ub-3AG" secondAttribute="trailing" constant="20" id="B4o-qu-ILE"/>
+                            <constraint firstItem="g8u-Nw-1Ba" firstAttribute="top" secondItem="Stk-rA-juR" secondAttribute="top" id="Bcm-9F-E2R"/>
+                            <constraint firstItem="HnJ-Ub-3AG" firstAttribute="top" secondItem="Stk-rA-juR" secondAttribute="top" id="RCf-aR-mbh"/>
+                            <constraint firstItem="g8u-Nw-1Ba" firstAttribute="leading" secondItem="Stk-rA-juR" secondAttribute="leading" constant="30" id="mP4-4o-Br0"/>
+                            <constraint firstItem="GPi-Ra-XCw" firstAttribute="top" secondItem="g8u-Nw-1Ba" secondAttribute="bottom" constant="15" id="tZi-0s-FC4"/>
+                            <constraint firstItem="GPi-Ra-XCw" firstAttribute="leading" secondItem="Stk-rA-juR" secondAttribute="leading" id="xz9-X8-glZ"/>
+                            <constraint firstItem="GPi-Ra-XCw" firstAttribute="top" secondItem="HnJ-Ub-3AG" secondAttribute="bottom" constant="15" id="zih-Ua-lxn"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LEo-Wq-STg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="821"/>
+            <point key="canvasLocation" x="131.8840579710145" y="820.98214285714278"/>
         </scene>
     </scenes>
     <resources>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
