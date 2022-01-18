@@ -52,7 +52,7 @@ struct Body: Codable {
     let status: Int
     let msg: String
     let user: User?
-    let users: [User?]
+    let users: [User?]?
 }
 
 struct User: Codable {
