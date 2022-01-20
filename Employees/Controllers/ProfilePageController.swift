@@ -20,7 +20,20 @@ class ProfilePageController: UIViewController {
     func loadUser() {
         if let user = user {
             nameLabel.text = user.name
-            roleLabel.text = user.job
+            
+            switch user.job {
+                case "humanresources":
+                    roleLabel.text = "Recursos humanos"
+                    break
+                case "employee":
+                    roleLabel.text = "Empleados"
+                    break
+                case "executive":
+                    roleLabel.text = "Ejecutivo"
+                    break
+                default:
+                    roleLabel.text = user.job
+            }
             
             let formatter = NumberFormatter()
             formatter.numberStyle = .currency

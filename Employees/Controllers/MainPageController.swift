@@ -5,8 +5,10 @@ import Alamofire
 class MainPageController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var user: User?
+    var userSent: User?
     var users: [User?]?
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,11 @@ class MainPageController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        userSent = (users?[indexPath.row])!
+        self.performSegue(withIdentifier: "detailsSegue", sender: nil)
+    }
+    
     func getAllUsers() {
         
         NetworkingHelper().getUsersRequest(success: { users in
@@ -48,7 +55,12 @@ class MainPageController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! ProfilePageController
-        destination.user = self.user
+        if segue.identifier == "profileSegue" {
+            let destination = segue.destination as! ProfilePageController
+            destination.user = user
+        } else if segue.identifier == "detailsSegue" {
+            let destination = segue.destination as! ProfilePageController
+            destination.user = userSent
+        }
     }
 }

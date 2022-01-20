@@ -29,7 +29,11 @@ class ViewController: UIViewController {
                     
                     UserDefaults.standard.set(self.user?.api_token, forKey: "api_token")
                     
-                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    if user?.job == "employee" {
+                        self.performSegue(withIdentifier: "profileLoginSegue", sender: nil)
+                    } else if user?.job != "employee" {
+                        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    }
                 }))
                 self.present(alert, animated: true, completion: nil)
             }, failure: { error in
@@ -43,6 +47,10 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "loginSegue" {
             let destination = segue.destination as! MainPageController
+            destination.user = self.user
+        }
+        if segue.identifier == "profileLoginSegue" {
+            let destination = segue.destination as! ProfilePageController
             destination.user = self.user
         }
     }
