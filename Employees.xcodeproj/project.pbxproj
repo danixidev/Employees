@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D1EE92A2799578000B1C630 /* ProfilePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1EE9292799578000B1C630 /* ProfilePageController.swift */; };
 		0D6AA36F278D799A0032C0F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AA36E278D799A0032C0F9 /* AppDelegate.swift */; };
 		0D6AA371278D799A0032C0F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AA370278D799A0032C0F9 /* SceneDelegate.swift */; };
 		0D6AA373278D799A0032C0F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AA372278D799A0032C0F9 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D1EE9292799578000B1C630 /* ProfilePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageController.swift; sourceTree = "<group>"; };
 		0D6AA36B278D799A0032C0F9 /* Employees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Employees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D6AA36E278D799A0032C0F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D6AA370278D799A0032C0F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				0D6AA372278D799A0032C0F9 /* ViewController.swift */,
 				330F531327924B63003703A5 /* ForgotPasswordController.swift */,
 				0DE9B6032796B10D00EAAA3E /* MainPageController.swift */,
+				0D1EE9292799578000B1C630 /* ProfilePageController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				0D80736427956B6D006FFB25 /* NetworkingHelper.swift in Sources */,
 				0D6AA373278D799A0032C0F9 /* ViewController.swift in Sources */,
 				330F531427924B64003703A5 /* ForgotPasswordController.swift in Sources */,
+				0D1EE92A2799578000B1C630 /* ProfilePageController.swift in Sources */,
 				0DE9B6042796B10D00EAAA3E /* MainPageController.swift in Sources */,
 				0D6AA36F278D799A0032C0F9 /* AppDelegate.swift in Sources */,
 				0D6AA371278D799A0032C0F9 /* SceneDelegate.swift in Sources */,

@@ -41,8 +41,10 @@ class ViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! MainPageController
-        destination.user = self.user
+        if segue.identifier == "loginSegue" {
+            let destination = segue.destination as! MainPageController
+            destination.user = self.user
+        }
     }
 }
 

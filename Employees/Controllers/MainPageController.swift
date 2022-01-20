@@ -43,4 +43,12 @@ class MainPageController: UIViewController, UITableViewDataSource, UITableViewDe
         }, headers: ["Token": (self.user?.api_token)!])
         
     }
+    @IBAction func profileButton(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "profileSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! ProfilePageController
+        destination.user = self.user
+    }
 }

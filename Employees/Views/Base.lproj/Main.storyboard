@@ -60,7 +60,7 @@
                                     <color key="titleColor" systemColor="tintColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="d30-Uk-Vft" kind="show" id="Ap3-TZ-DAi"/>
+                                    <segue destination="d30-Uk-Vft" kind="show" id="iEa-8h-VB0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -104,7 +104,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Introduce tu email para que te enviemos tu nueva contraseña" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mpm-UQ-lQm">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Introduce tu email para que te enviemos tu nueva contraseña" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpm-UQ-lQm">
                                 <rect key="frame" x="60" y="130" width="294" height="90"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -189,6 +189,9 @@
                                 <state key="normal" image="person.circle" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="medium"/>
                                 </state>
+                                <connections>
+                                    <action selector="profileButton:" destination="HE2-zu-mMu" eventType="touchUpInside" id="3td-ft-f4A"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Stk-rA-juR"/>
@@ -207,11 +210,97 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="GPi-Ra-XCw" id="hup-tB-gt6"/>
+                        <segue destination="0qx-gS-uWX" kind="show" identifier="profileSegue" id="lLp-Zn-RIA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LEo-Wq-STg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="820.98214285714278"/>
+        </scene>
+        <!--Profile Page Controller-->
+        <scene sceneID="1fJ-FQ-y4n">
+            <objects>
+                <viewController id="0qx-gS-uWX" customClass="ProfilePageController" customModule="Employees" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EaQ-WT-ulm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GQF-eR-aD9">
+                                <rect key="frame" x="132" y="90" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GQF-eR-aD9" secondAttribute="height" multiplier="1:1" id="npn-bR-EdM"/>
+                                    <constraint firstAttribute="width" constant="150" id="uex-jS-oV9"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKv-QI-tjn">
+                                <rect key="frame" x="60" y="280" width="294" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="I6m-ug-PWy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Role" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6r-Za-aKU">
+                                <rect key="frame" x="60" y="331" width="294" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="COY-xr-uQc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3e6-OA-5lN">
+                                <rect key="frame" x="60" y="382" width="294" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="HTM-tq-DTI"/>
+                                    <constraint firstAttribute="height" constant="36" id="fPZ-1H-2bv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Ld-CO-Bma">
+                                <rect key="frame" x="60" y="443" width="294" height="315"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eYr-p9-b6P"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="d6r-Za-aKU" firstAttribute="leading" secondItem="eYr-p9-b6P" secondAttribute="leading" constant="60" id="6lE-Js-SDI"/>
+                            <constraint firstItem="PKv-QI-tjn" firstAttribute="top" secondItem="GQF-eR-aD9" secondAttribute="bottom" constant="40" id="7cr-Ra-fif"/>
+                            <constraint firstItem="3e6-OA-5lN" firstAttribute="top" secondItem="d6r-Za-aKU" secondAttribute="bottom" constant="15" id="Bbu-7g-Xrc"/>
+                            <constraint firstItem="3e6-OA-5lN" firstAttribute="leading" secondItem="eYr-p9-b6P" secondAttribute="leading" constant="60" id="Buj-FM-DUb"/>
+                            <constraint firstItem="PKv-QI-tjn" firstAttribute="leading" secondItem="eYr-p9-b6P" secondAttribute="leading" constant="60" id="M5u-lp-qeK"/>
+                            <constraint firstItem="eYr-p9-b6P" firstAttribute="bottom" secondItem="6Ld-CO-Bma" secondAttribute="bottom" constant="50" id="RIb-LE-PYx"/>
+                            <constraint firstItem="eYr-p9-b6P" firstAttribute="trailing" secondItem="PKv-QI-tjn" secondAttribute="trailing" constant="60" id="UgV-5o-FkW"/>
+                            <constraint firstItem="eYr-p9-b6P" firstAttribute="trailing" secondItem="6Ld-CO-Bma" secondAttribute="trailing" constant="60" id="YA9-fz-WSC"/>
+                            <constraint firstItem="eYr-p9-b6P" firstAttribute="trailing" secondItem="d6r-Za-aKU" secondAttribute="trailing" constant="60" id="apx-Ak-EpB"/>
+                            <constraint firstItem="d6r-Za-aKU" firstAttribute="top" secondItem="PKv-QI-tjn" secondAttribute="bottom" constant="15" id="bok-at-noH"/>
+                            <constraint firstItem="6Ld-CO-Bma" firstAttribute="leading" secondItem="eYr-p9-b6P" secondAttribute="leading" constant="60" id="ef5-zb-xmN"/>
+                            <constraint firstItem="GQF-eR-aD9" firstAttribute="centerX" secondItem="EaQ-WT-ulm" secondAttribute="centerX" id="h94-lq-leT"/>
+                            <constraint firstItem="eYr-p9-b6P" firstAttribute="trailing" secondItem="3e6-OA-5lN" secondAttribute="trailing" constant="60" id="mLu-jE-SSv"/>
+                            <constraint firstItem="6Ld-CO-Bma" firstAttribute="top" secondItem="3e6-OA-5lN" secondAttribute="bottom" constant="25" id="uOn-oO-3Le"/>
+                            <constraint firstItem="GQF-eR-aD9" firstAttribute="top" secondItem="eYr-p9-b6P" secondAttribute="top" constant="90" id="zrZ-QT-Bb6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="IuH-AU-1U2"/>
+                    <connections>
+                        <outlet property="descriptionText" destination="6Ld-CO-Bma" id="xkG-19-2Wl"/>
+                        <outlet property="imageView" destination="GQF-eR-aD9" id="JKs-Ns-Cwy"/>
+                        <outlet property="nameLabel" destination="PKv-QI-tjn" id="7H5-ZE-Ym3"/>
+                        <outlet property="roleLabel" destination="d6r-Za-aKU" id="jMH-zs-tUf"/>
+                        <outlet property="salaryLabel" destination="3e6-OA-5lN" id="mfg-PE-tVe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="51n-hF-2tn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992.75362318840587" y="820.98214285714278"/>
         </scene>
     </scenes>
     <resources>
