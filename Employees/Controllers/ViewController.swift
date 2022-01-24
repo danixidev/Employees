@@ -13,10 +13,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 10.0
-        
-        if let token = UserDefaults.standard.value(forKey: "api_token") {
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
-        }
     }
     
     @IBAction func loginButton(_ sender: UIButton) {    // rf;^])
