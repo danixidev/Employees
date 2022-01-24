@@ -53,6 +53,9 @@ class MainPageController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func profileButton(_ sender: UIButton) {
         self.performSegue(withIdentifier: "profileSegue", sender: nil)
     }
+    @IBAction func createUserButton(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "createUserSegue", sender: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "profileSegue" {
@@ -61,6 +64,9 @@ class MainPageController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if segue.identifier == "detailsSegue" {
             let destination = segue.destination as! ProfilePageController
             destination.user = userSent
+        } else if segue.identifier == "createUserSegue" {
+            let destination = segue.destination as! CreateUserController
+            destination.user = user
         }
     }
 }

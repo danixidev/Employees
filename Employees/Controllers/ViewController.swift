@@ -13,19 +13,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 10.0
+        
+        if let token = UserDefaults.standard.value(forKey: "api_token") {
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        }
     }
     
     @IBAction func loginButton(_ sender: UIButton) {    // rf;^])
         if emailTextEdit.text == "" {
-            
+            let alert = UIAlertController(title: "Error", message: "No has introducido un email", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } else if passwordTextEdit.text == "" {
-            
+            let alert = UIAlertController(title: "Error", message: "No has introducido una contraseña", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } else {
             NetworkingHelper().loginRequest(success: { user in
                 let alert = UIAlertController(title: "Login succesful", message: "User was logged in succesfully", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { action in
                     self.user = user!
-                    print(user)
+                    print(user!)
                     
                     UserDefaults.standard.set(self.user?.api_token, forKey: "api_token")
                     
@@ -71,6 +79,6 @@ struct User: Decodable, Encodable {
     let job: String
     let salary: Float
     let biography: String
-    let profileImgUrl: String
+    let profileImgUrl: String?
     let api_token: String?
 }
