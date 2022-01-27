@@ -444,6 +444,7 @@
                     <navigationItem key="navigationItem" id="9hL-oo-clS"/>
                     <connections>
                         <outlet property="biographyTextField" destination="jpg-fZ-Hcl" id="xgK-Rj-cFp"/>
+                        <outlet property="createUserButton" destination="G2U-SN-8ab" id="X3p-xf-Ern"/>
                         <outlet property="emailTextField" destination="B4t-sJ-d7E" id="dNH-Z2-Ruw"/>
                         <outlet property="nameTextField" destination="7k2-m4-laY" id="T5W-VY-c4G"/>
                         <outlet property="pickerView" destination="cZx-Rf-Yx4" id="gMT-q7-eIu"/>
