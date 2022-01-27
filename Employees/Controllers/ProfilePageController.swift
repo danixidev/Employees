@@ -11,10 +11,12 @@ class ProfilePageController: UIViewController {
     @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var salaryLabel: UILabel!
     @IBOutlet weak var descriptionText: UITextView!
+    @IBOutlet weak var backgroundView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUser()
+        backgroundView.layer.cornerRadius = 8.0
     }
     
     func loadUser() {
