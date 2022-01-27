@@ -23,10 +23,6 @@ class MainPageController: UIViewController, UITableViewDataSource, UITableViewDe
         getAllUsers()
     }
     
-    override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
-        getAllUsers()
-    }
-    
     @objc func endRefresh(refreshControl: UIRefreshControl) {
         getAllUsers()
     }
