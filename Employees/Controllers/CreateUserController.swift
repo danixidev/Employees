@@ -10,6 +10,7 @@ class CreateUserController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBOutlet weak var salaryTextField: UITextField!
     @IBOutlet weak var biographyTextField: UITextField!
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var createUserButton: UIButton!
     
     
     var colorsArray = ["Empleado"]
@@ -18,6 +19,7 @@ class CreateUserController: UIViewController, UIPickerViewDataSource, UIPickerVi
         super.viewDidLoad()
         pickerView.dataSource = self
         pickerView.delegate = self
+        createUserButton.layer.cornerRadius = 10.0
         
         if user?.job == "executive" {
             colorsArray = ["Empleado", "Recursos humanos", "Ejecutivo"]

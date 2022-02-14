@@ -10,10 +10,20 @@ class MainPageController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        
+        refreshControl.addTarget(self, action: #selector(endRefresh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        getAllUsers()
+    }
+    
+    @objc func endRefresh(refreshControl: UIRefreshControl) {
         getAllUsers()
     }
     
@@ -43,10 +53,19 @@ class MainPageController: UIViewController, UITableViewDataSource, UITableViewDe
             self.users = users
             self.tableView.reloadData()
             
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            
+            
         }, failure: { error in
             let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
         }, headers: ["Token": (self.user?.api_token)!])
         
     }

@@ -6,10 +6,12 @@ class ForgotPasswordController: UIViewController {
 
     @IBOutlet weak var sendMailButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var backgroundView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sendMailButton.layer.cornerRadius = 8.0
+        backgroundView.layer.cornerRadius = 8.0
     }
     
     @IBAction func sendMailButton(_ sender: UIButton) {
